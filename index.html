@@ -89,6 +89,15 @@
             }
         }
 
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
         /* LOGO */
         .logo {
             width: 120px;
@@ -376,6 +385,109 @@
             font-weight: 600;
             text-align: center;
             margin-top: 15px;
+        }
+
+        /* REDES SOCIAIS SECTION */
+        .social-section {
+            background: linear-gradient(135deg, rgba(100, 100, 255, 0.1), rgba(150, 100, 255, 0.1));
+            border: 2px solid rgba(150, 100, 255, 0.4);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .social-section h2 {
+            color: #b366ff;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .social-section p {
+            color: #a0aab8;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .social-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-btn {
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* INSTAGRAM */
+        .social-btn.instagram {
+            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            box-shadow: 0 5px 15px rgba(240, 148, 51, 0.3);
+        }
+
+        .social-btn.instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(240, 148, 51, 0.5);
+        }
+
+        /* WHATSAPP */
+        .social-btn.whatsapp {
+            background: linear-gradient(135deg, #25d366, #20ba5a);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .social-btn.whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        /* YOUTUBE */
+        .social-btn.youtube {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .social-btn.youtube:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+        }
+
+        /* TELEGRAM */
+        .social-btn.telegram {
+            background: linear-gradient(135deg, #0088cc, #0077b5);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
+        }
+
+        .social-btn.telegram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
+        }
+
+        .social-btn:active {
+            transform: scale(0.95);
+        }
+
+        .social-btn-icon {
+            font-size: 24px;
+        }
+
+        .social-btn-text {
+            font-size: 12px;
         }
 
         /* ALERT */
@@ -733,6 +845,10 @@
                 padding: 25px;
             }
 
+            .social-section {
+                padding: 25px;
+            }
+
             iframe {
                 height: 300px;
             }
@@ -753,6 +869,10 @@
                 font-size: 22px;
             }
 
+            .social-section h2 {
+                font-size: 22px;
+            }
+
             .radio-btn {
                 padding: 14px 35px;
                 font-size: 14px;
@@ -760,6 +880,10 @@
 
             .volume-slider {
                 width: 100px;
+            }
+
+            .social-buttons {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -823,6 +947,39 @@
                     <div class="status-text" id="statusText">
                         ▶️ Reproduzindo...
                     </div>
+                </div>
+            </div>
+
+            <!-- REDES SOCIAIS SECTION -->
+            <div class="social-section">
+                <h2>🌐 SIGA NOSSAS REDES SOCIAIS</h2>
+                <p>Fique por dentro de todas as novidades e atualizações!</p>
+
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/bruxomodz" target="_blank" class="social-btn instagram">
+                        <div class="social-btn-icon">📷</div>
+                        <div class="social-btn-text">Instagram</div>
+                    </a>
+
+                    <a href="https://chat.whatsapp.com/Bye9CWnyog5CggS0y6RxXA?mode=gi_t" target="_blank" class="social-btn whatsapp">
+                        <div class="social-btn-icon">💬</div>
+                        <div class="social-btn-text">WhatsApp</div>
+                    </a>
+
+                    <a href="https://www.youtube.com/@isacmodstv" target="_blank" class="social-btn youtube">
+                        <div class="social-btn-icon">▶️</div>
+                        <div class="social-btn-text">Isac Mods</div>
+                    </a>
+
+                    <a href="https://www.youtube.com/@bruxomodzofc" target="_blank" class="social-btn youtube">
+                        <div class="social-btn-icon">▶️</div>
+                        <div class="social-btn-text">Bruxo Modz</div>
+                    </a>
+
+                    <a href="https://t.me/bruxomodz" target="_blank" class="social-btn telegram">
+                        <div class="social-btn-icon">✈️</div>
+                        <div class="social-btn-text">Telegram</div>
+                    </a>
                 </div>
             </div>
 
