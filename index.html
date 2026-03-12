@@ -60,6 +60,24 @@
             }
         }
 
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         /* LOGO */
         .logo {
             width: 120px;
@@ -96,6 +114,60 @@
             font-size: 16px;
             font-weight: 300;
             animation: fadeIn 1s ease-out;
+        }
+
+        /* CONTADOR DE DOWNLOADS */
+        .download-counter {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 200, 100, 0.1));
+            border: 2px solid rgba(0, 255, 136, 0.4);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .download-counter h3 {
+            color: #00ff88;
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .counter-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00ff88, #00eaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .counter-label {
+            color: #a0aab8;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .counter-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 255, 136, 0.2);
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .counter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #00eaff);
+            border-radius: 10px;
+            width: 75%;
+            animation: fadeIn 2s ease-out;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
         }
 
         /* ALERT */
@@ -460,6 +532,10 @@
             .tutorials-grid {
                 grid-template-columns: 1fr;
             }
+
+            .counter-number {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
@@ -472,6 +548,16 @@
             <div class="logo">ISAC</div>
             <h1 class="title">ISAC MODS TV FREE</h1>
             <p class="subtitle">Versão gratuita com funcionalidades básicas. Suporte limitado.</p>
+
+            <!-- CONTADOR DE DOWNLOADS -->
+            <div class="download-counter">
+                <h3>📥 DOWNLOADS TOTAIS</h3>
+                <div class="counter-number" id="counterNumber">0</div>
+                <div class="counter-label">Pessoas já baixaram o Isac Menu</div>
+                <div class="counter-bar">
+                    <div class="counter-fill"></div>
+                </div>
+            </div>
 
             <div class="alert">
                 <b>⚠️ AVISO:</b> Esta é a versão gratuita do Isac Menu e pode não funcionar em todos os dispositivos. Para uma versão completa com suporte e compatibilidade garantida, adquira o Isac Menu VIP em nossa loja.
@@ -545,10 +631,10 @@
                     <p>Baixe o arquivo do Isac Menu para o Tutorial 1:</p>
 
                     <div class="downloadButtons">
-                        <button class="downloadBtn" onclick="window.open('https://riorise.com/download/isacmenu')">
+                        <button class="downloadBtn" onclick="window.open('https://riorise.com/download/isacmenu'); incrementarDownloads();">
                             ⬇️ BAIXAR ISAC MENU
                         </button>
-                        <button class="downloadBtn" onclick="window.open('https://riorise.com/pt')">
+                        <button class="downloadBtn" onclick="window.open('https://riorise.com/pt'); incrementarDownloads();">
                             ⬇️ BAIXAR RIO RISE
                         </button>
                     </div>
@@ -585,10 +671,10 @@
                     <p>Baixe o arquivo do Isac Menu para o Tutorial 2:</p>
 
                     <div class="downloadButtons">
-                        <button class="downloadBtn" onclick="window.open('https://mega.nz/file/QFETkZxY#DJTddUOsodxmQ9ev3xgXHqUiQK9vqpnRhPTK908lZo4')">
+                        <button class="downloadBtn" onclick="window.open('https://mega.nz/file/QFETkZxY#DJTddUOsodxmQ9ev3xgXHqUiQK9vqpnRhPTK908lZo4'); incrementarDownloads();">
                             ⬇️ BAIXAR MOD LIVE RUSSIA
                         </button>
-                        <button class="downloadBtn" onclick="window.open('https://play.google.com/store/apps/details?id=com.liverussia.game.googleplay')">
+                        <button class="downloadBtn" onclick="window.open('https://play.google.com/store/apps/details?id=com.liverussia.game.googleplay'); incrementarDownloads();">
                             ⬇️ BAIXAR JOGO LIVE RUSSIA
                         </button>
                     </div>
@@ -630,6 +716,35 @@
     </div>
 
     <script>
+        // CONTADOR DE DOWNLOADS
+        let downloadCount = localStorage.getItem('downloadCount') ? parseInt(localStorage.getItem('downloadCount')) : 12450;
+
+        function initializeCounter() {
+            animateCounter(downloadCount);
+        }
+
+        function animateCounter(finalNumber) {
+            let currentNumber = 0;
+            const increment = Math.ceil(finalNumber / 50);
+            const counterElement = document.getElementById('counterNumber');
+
+            const interval = setInterval(() => {
+                currentNumber += increment;
+                if (currentNumber >= finalNumber) {
+                    currentNumber = finalNumber;
+                    clearInterval(interval);
+                }
+                counterElement.textContent = currentNumber.toLocaleString('pt-BR');
+            }, 30);
+        }
+
+        function incrementarDownloads() {
+            downloadCount++;
+            localStorage.setItem('downloadCount', downloadCount);
+            document.getElementById('counterNumber').textContent = downloadCount.toLocaleString('pt-BR');
+        }
+
+        // FUNÇÕES DE NAVEGAÇÃO
         function abrirPagina2() {
             document.getElementById("pagina1").style.display = "none";
             document.getElementById("pagina2").classList.add("active");
@@ -656,6 +771,9 @@
             document.getElementById("downloadArea" + numero).classList.add("active");
             document.getElementById("downloadArea" + numero).scrollIntoView({ behavior: 'smooth' });
         }
+
+        // Inicializar contador quando a página carrega
+        window.addEventListener('load', initializeCounter);
     </script>
 </body>
 </html>
