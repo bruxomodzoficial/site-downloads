@@ -69,15 +69,6 @@
             }
         }
 
-        @keyframes countUp {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
         /* LOGO */
         .logo {
             width: 120px;
@@ -619,10 +610,15 @@
                         <h3>🎯 TUTORIAL 2</h3>
                         <p>📥 Instalar Isac Menu Live Russia</p>
                     </div>
+
+                    <div class="tutorial" onclick="abrirTutorial(3)">
+                        <h3>🎯 TUTORIAL 3</h3>
+                        <p>📥 Instalar Isac Menu Free Fire</p>
+                    </div>
                 </div>
 
                 <div class="tip">
-                    💡 <b>Dica:</b> Se um tutorial não funcionar no seu dispositivo, é só tentar o outro método. Ambos levam ao mesmo resultado!
+                    💡 <b>Dica:</b> Se um tutorial não funcionar no seu dispositivo, é só tentar o outro método. Todos levam ao mesmo resultado!
                 </div>
 
                 <!-- ÁREA DOWNLOAD 1 - RIO RISE -->
@@ -704,6 +700,46 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ÁREA DOWNLOAD 3 - FREE FIRE -->
+                <div id="downloadArea3" class="downloadArea">
+                    <h2 style="color:#00eaff; margin-top:30px;">📥 DOWNLOAD - TUTORIAL 3 (FREE FIRE)</h2>
+                    <p>Baixe o arquivo do Isac Menu para o Tutorial 3:</p>
+
+                    <div class="downloadButtons">
+                        <button class="downloadBtn" onclick="window.open(''); incrementarDownloads();">
+                            ⬇️ BAIXAR ISAC MENU FREE FIRE
+                        </button>
+                        <button class="downloadBtn" onclick="window.open('https://play.google.com/store/apps/details?id=com.dts.freefireth'); incrementarDownloads();">
+                            ⬇️ BAIXAR FREE FIRE
+                        </button>
+                    </div>
+
+                    <div class="note">
+                        <b>📌 Nota Importante:</b> Este método é otimizado especialmente para Free Fire. Compatível com a maioria dos dispositivos Android.
+                    </div>
+
+                    <div class="video">
+                        <h2>🎬 VÍDEO TUTORIAL 3 - FREE FIRE</h2>
+                        <p>Assista o passo a passo completo para instalar o Isac Menu no Free Fire:</p>
+                        <iframe src="https://www.youtube.com/embed/aK14-gEwsXo"></iframe>
+                    </div>
+
+                    <div class="features">
+                        <div class="feature">
+                            <h3>🎮 Otimizado para Free Fire</h3>
+                            <p>Funciona perfeitamente no jogo</p>
+                        </div>
+                        <div class="feature">
+                            <h3>⚡ Performance Máxima</h3>
+                            <p>Sem lag ou travamentos</p>
+                        </div>
+                        <div class="feature">
+                            <h3>🔒 Seguro e Confiável</h3>
+                            <p>Proteção contra banimentos</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <footer>
@@ -758,6 +794,7 @@
             // Fechar todas as áreas de download
             document.getElementById("downloadArea1").classList.remove("active");
             document.getElementById("downloadArea2").classList.remove("active");
+            document.getElementById("downloadArea3").classList.remove("active");
             
             window.scrollTo(0, 0);
         }
@@ -766,6 +803,7 @@
             // Fechar todas as áreas
             document.getElementById("downloadArea1").classList.remove("active");
             document.getElementById("downloadArea2").classList.remove("active");
+            document.getElementById("downloadArea3").classList.remove("active");
             
             // Abrir a área selecionada
             document.getElementById("downloadArea" + numero).classList.add("active");
