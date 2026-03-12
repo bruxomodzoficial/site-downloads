@@ -250,13 +250,20 @@
             margin-bottom: 25px;
         }
 
+        /* TUTORIALS GRID */
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
         .tutorial {
             background: linear-gradient(135deg, rgba(0, 234, 255, 0.05), rgba(0, 150, 200, 0.05));
             border: 2px solid rgba(0, 234, 255, 0.2);
             border-radius: 12px;
             padding: 30px;
             text-align: center;
-            margin-top: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -289,10 +296,14 @@
         }
 
         /* DOWNLOAD AREA */
-        #downloadArea {
+        .downloadArea {
             display: none;
             margin-top: 30px;
             animation: fadeIn 0.6s ease-out;
+        }
+
+        .downloadArea.active {
+            display: block;
         }
 
         .downloadButtons {
@@ -420,6 +431,10 @@
             animation: fadeIn 0.6s ease-out;
         }
 
+        #pagina2.active {
+            display: block;
+        }
+
         /* RESPONSIVO */
         @media (max-width: 768px) {
             .title {
@@ -439,6 +454,10 @@
             }
 
             .options {
+                grid-template-columns: 1fr;
+            }
+
+            .tutorials-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -504,22 +523,29 @@
                 <h2>SELECIONE O TUTORIAL DE INSTALAÇÃO</h2>
                 <p>Escolha um dos métodos abaixo. Se um não funcionar, tente o outro:</p>
 
-                <div class="tutorial" onclick="abrirTutorial()">
-                    <h3>🎯 TUTORIAL 1 (CLONADOR MATRIX)</h3>
-                    <p>Método recomendado para a maioria dos dispositivos</p>
+                <div class="tutorials-grid">
+                    <div class="tutorial" onclick="abrirTutorial(1)">
+                        <h3>🎯 TUTORIAL 1</h3>
+                        <p>📥 Instalar Isac Menu Rio Rise</p>
+                    </div>
+
+                    <div class="tutorial" onclick="abrirTutorial(2)">
+                        <h3>🎯 TUTORIAL 2</h3>
+                        <p>📥 Instalar Isac Menu Live Russia</p>
+                    </div>
                 </div>
 
                 <div class="tip">
                     💡 <b>Dica:</b> Se um tutorial não funcionar no seu dispositivo, é só tentar o outro método. Ambos levam ao mesmo resultado!
                 </div>
 
-                <!-- ÁREA DOWNLOAD -->
-                <div id="downloadArea">
-                    <h2 style="color:#00eaff; margin-top:30px;">📥 DOWNLOAD - TUTORIAL 1 (CLONADOR MATRIX)</h2>
+                <!-- ÁREA DOWNLOAD 1 - RIO RISE -->
+                <div id="downloadArea1" class="downloadArea">
+                    <h2 style="color:#00eaff; margin-top:30px;">📥 DOWNLOAD - TUTORIAL 1 (RIO RISE)</h2>
                     <p>Baixe o arquivo do Isac Menu para o Tutorial 1:</p>
 
                     <div class="downloadButtons">
-                        <button class="downloadBtn" onclick="window.open('https://seulink.com/isacmenu')">
+                        <button class="downloadBtn" onclick="window.open('https://riorise.com/download/isacmenu')">
                             ⬇️ BAIXAR ISAC MENU
                         </button>
                         <button class="downloadBtn" onclick="window.open('https://riorise.com/pt')">
@@ -532,9 +558,9 @@
                     </div>
 
                     <div class="video">
-                        <h2>🎬 VÍDEO TUTORIAL 1</h2>
-                        <p>Assista o passo a passo completo para instalar o Isac Menu com o Clonador Matrix:</p>
-                        <iframe src="https://www.youtube.com/embed/aK14-gEwsXo"></iframe>
+                        <h2>🎬 VÍDEO TUTORIAL 1 - RIO RISE</h2>
+                        <p>Assista o passo a passo completo para instalar o Isac Menu com Rio Rise:</p>
+                        <iframe src="https://youtu.be/aK14-gEwsXo?si=wK-dKNfao86jzEql"></iframe>
                     </div>
 
                     <div class="features">
@@ -552,6 +578,46 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ÁREA DOWNLOAD 2 - LIVE RUSSIA -->
+                <div id="downloadArea2" class="downloadArea">
+                    <h2 style="color:#00eaff; margin-top:30px;">📥 DOWNLOAD - TUTORIAL 2 (LIVE RUSSIA)</h2>
+                    <p>Baixe o arquivo do Isac Menu para o Tutorial 2:</p>
+
+                    <div class="downloadButtons">
+                        <button class="downloadBtn" onclick="window.open('https://liverussiacdn.com/download/isacmenu')">
+                            ⬇️ BAIXAR ISAC MENU
+                        </button>
+                        <button class="downloadBtn" onclick="window.open('https://play.google.com/store/apps/details?id=com.liverussia.game.googleplay')">
+                            ⬇️ BAIXAR LIVE RUSSIA
+                        </button>
+                    </div>
+
+                    <div class="note">
+                        <b>📌 Nota Importante:</b> Este método é otimizado para conexões de alta velocidade. Certifique-se de ter uma boa conexão de internet.
+                    </div>
+
+                    <div class="video">
+                        <h2>🎬 VÍDEO TUTORIAL 2 - LIVE RUSSIA</h2>
+                        <p>Assista o passo a passo completo para instalar o Isac Menu com Live Russia:</p>
+                        <iframe src="https://youtu.be/H-csPSLcptA?si=ZHIN2XorysTaEi0E"></iframe>
+                    </div>
+
+                    <div class="features">
+                        <div class="feature">
+                            <h3>⚡ Velocidade Ultra</h3>
+                            <p>Download e instalação rápida</p>
+                        </div>
+                        <div class="feature">
+                            <h3>🌍 Servidor Global</h3>
+                            <p>Acesso de qualquer lugar do mundo</p>
+                        </div>
+                        <div class="feature">
+                            <h3>🔐 Segurança Premium</h3>
+                            <p>Proteção avançada contra ameaças</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <footer>
@@ -566,19 +632,29 @@
     <script>
         function abrirPagina2() {
             document.getElementById("pagina1").style.display = "none";
-            document.getElementById("pagina2").style.display = "block";
+            document.getElementById("pagina2").classList.add("active");
             window.scrollTo(0, 0);
         }
 
         function voltar() {
-            document.getElementById("pagina2").style.display = "none";
+            document.getElementById("pagina2").classList.remove("active");
             document.getElementById("pagina1").style.display = "block";
+            
+            // Fechar todas as áreas de download
+            document.getElementById("downloadArea1").classList.remove("active");
+            document.getElementById("downloadArea2").classList.remove("active");
+            
             window.scrollTo(0, 0);
         }
 
-        function abrirTutorial() {
-            document.getElementById("downloadArea").style.display = "block";
-            document.getElementById("downloadArea").scrollIntoView({ behavior: 'smooth' });
+        function abrirTutorial(numero) {
+            // Fechar todas as áreas
+            document.getElementById("downloadArea1").classList.remove("active");
+            document.getElementById("downloadArea2").classList.remove("active");
+            
+            // Abrir a área selecionada
+            document.getElementById("downloadArea" + numero).classList.add("active");
+            document.getElementById("downloadArea" + numero).scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
