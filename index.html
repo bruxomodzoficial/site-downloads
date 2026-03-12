@@ -69,6 +69,26 @@
             }
         }
 
+        @keyframes soundWave {
+            0%, 100% {
+                height: 5px;
+            }
+            50% {
+                height: 20px;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* LOGO */
         .logo {
             width: 120px;
@@ -159,6 +179,203 @@
             width: 75%;
             animation: fadeIn 2s ease-out;
             box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+        }
+
+        /* RÁDIO SECTION */
+        .radio-section {
+            background: linear-gradient(135deg, rgba(255, 100, 0, 0.1), rgba(255, 140, 0, 0.1));
+            border: 2px solid rgba(255, 140, 0, 0.4);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .radio-section h2 {
+            color: #ffaa00;
+            font-size: 28px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .sound-waves {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+        }
+
+        .wave {
+            width: 4px;
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            border-radius: 2px;
+            animation: soundWave 0.6s ease-in-out infinite;
+        }
+
+        .wave:nth-child(1) { animation-delay: 0s; }
+        .wave:nth-child(2) { animation-delay: 0.1s; }
+        .wave:nth-child(3) { animation-delay: 0.2s; }
+        .wave:nth-child(4) { animation-delay: 0.3s; }
+        .wave:nth-child(5) { animation-delay: 0.4s; }
+
+        .radio-section p {
+            color: #a0aab8;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .radio-btn {
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            border: none;
+            padding: 18px 50px;
+            border-radius: 30px;
+            color: #0a0e27;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 140, 0, 0.4);
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .radio-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 140, 0, 0.6);
+        }
+
+        .radio-btn:active {
+            transform: scale(0.95);
+        }
+
+        .radio-btn.playing {
+            background: linear-gradient(135deg, #ff6600, #ff4400);
+            box-shadow: 0 0 30px rgba(255, 100, 0, 0.8);
+        }
+
+        /* PLAYER DE RÁDIO */
+        .radio-player {
+            display: none;
+            background: linear-gradient(135deg, rgba(255, 100, 0, 0.15), rgba(255, 140, 0, 0.15));
+            border: 2px solid rgba(255, 140, 0, 0.5);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 25px;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .radio-player.active {
+            display: block;
+        }
+
+        .player-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .player-info h3 {
+            color: #ffaa00;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .player-info p {
+            color: #a0aab8;
+            font-size: 13px;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .control-btn {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.3), rgba(255, 100, 0, 0.3));
+            border: 1px solid rgba(255, 140, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #ffaa00;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.5), rgba(255, 100, 0, 0.5));
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .control-btn.play-pause {
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            color: #0a0e27;
+            border: none;
+        }
+
+        .control-btn.play-pause:hover {
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .volume-slider {
+            width: 150px;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 140, 0, 0.2);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffaa00, #ff8800);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+        }
+
+        .status-text {
+            color: #ffaa00;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 15px;
         }
 
         /* ALERT */
@@ -512,6 +729,10 @@
                 padding: 25px;
             }
 
+            .radio-section {
+                padding: 25px;
+            }
+
             iframe {
                 height: 300px;
             }
@@ -526,6 +747,19 @@
 
             .counter-number {
                 font-size: 36px;
+            }
+
+            .radio-section h2 {
+                font-size: 22px;
+            }
+
+            .radio-btn {
+                padding: 14px 35px;
+                font-size: 14px;
+            }
+
+            .volume-slider {
+                width: 100px;
             }
         }
     </style>
@@ -547,6 +781,48 @@
                 <div class="counter-label">Pessoas já baixaram o Isac Menu</div>
                 <div class="counter-bar">
                     <div class="counter-fill"></div>
+                </div>
+            </div>
+
+            <!-- RÁDIO SECTION -->
+            <div class="radio-section">
+                <h2>
+                    🎙️ NOLTOSFERA RÁDIO
+                    <div class="sound-waves" id="soundWaves">
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                    </div>
+                </h2>
+                <p>Ouça a melhor música e conteúdo ao vivo. Clique para acessar!</p>
+                <button class="radio-btn" id="radioBtn" onclick="toggleRadio()">
+                    ▶️ ACESSAR RÁDIO
+                </button>
+
+                <!-- PLAYER DE RÁDIO -->
+                <div class="radio-player" id="radioPlayer">
+                    <div class="player-info">
+                        <h3>🎵 Tocando Agora</h3>
+                        <p>Noltosfera Rádio - Ao Vivo</p>
+                    </div>
+
+                    <div class="player-controls">
+                        <button class="control-btn" onclick="previousTrack()">⏮️</button>
+                        <button class="control-btn play-pause" id="playPauseBtn" onclick="togglePlayPause()">⏸️</button>
+                        <button class="control-btn" onclick="nextTrack()">⏭️</button>
+                    </div>
+
+                    <div class="volume-control">
+                        <span style="font-size: 18px;">🔊</span>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70" onchange="changeVolume(this.value)">
+                        <span style="font-size: 18px;">🔉</span>
+                    </div>
+
+                    <div class="status-text" id="statusText">
+                        ▶️ Reproduzindo...
+                    </div>
                 </div>
             </div>
 
@@ -707,7 +983,7 @@
                     <p>Baixe o arquivo do Isac Menu para o Tutorial 3:</p>
 
                     <div class="downloadButtons">
-                        <button class="downloadBtn" onclick="window.open(''); incrementarDownloads();">
+                        <button class="downloadBtn" onclick="window.open('https://mega.nz/file/QFETkZxY#DJTddUOsodxmQ9ev3xgXHqUiQK9vqpnRhPTK908lZo4'); incrementarDownloads();">
                             ⬇️ BAIXAR ISAC MENU FREE FIRE
                         </button>
                         <button class="downloadBtn" onclick="window.open('https://play.google.com/store/apps/details?id=com.dts.freefireth'); incrementarDownloads();">
@@ -751,7 +1027,97 @@
         </div>
     </div>
 
+    <!-- ÁUDIO PLAYER OCULTO -->
+    <audio id="radioAudio" crossorigin="anonymous"></audio>
+
     <script>
+        // VARIÁVEIS DO PLAYER
+        let isPlaying = false;
+        const radioAudio = document.getElementById('radioAudio');
+        const radioBtn = document.getElementById('radioBtn');
+        const radioPlayer = document.getElementById('radioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const statusText = document.getElementById('statusText');
+        const soundWaves = document.getElementById('soundWaves');
+
+        // URL DA RÁDIO
+        const radioURL = 'https://stream.zeno.fm/x9ko0jn9mzauv';
+
+        // TOGGLE RÁDIO
+        function toggleRadio() {
+            if (!radioPlayer.classList.contains('active')) {
+                radioPlayer.classList.add('active');
+                radioBtn.classList.add('playing');
+                radioBtn.textContent = '⏸️ PARANDO...';
+                playRadio();
+            } else {
+                stopRadio();
+            }
+        }
+
+        // REPRODUZIR RÁDIO
+        function playRadio() {
+            radioAudio.src = radioURL;
+            radioAudio.play().catch(err => {
+                statusText.textContent = '❌ Erro ao conectar à rádio';
+                console.log('Erro:', err);
+            });
+            isPlaying = true;
+            playPauseBtn.textContent = '⏸️';
+            statusText.textContent = '▶️ Reproduzindo...';
+            soundWaves.style.opacity = '1';
+        }
+
+        // PARAR RÁDIO
+        function stopRadio() {
+            radioAudio.pause();
+            radioAudio.src = '';
+            isPlaying = false;
+            radioPlayer.classList.remove('active');
+            radioBtn.classList.remove('playing');
+            radioBtn.textContent = '▶️ ACESSAR RÁDIO';
+            playPauseBtn.textContent = '▶️';
+            statusText.textContent = '⏹️ Parado';
+            soundWaves.style.opacity = '0.5';
+        }
+
+        // PLAY/PAUSE
+        function togglePlayPause() {
+            if (isPlaying) {
+                radioAudio.pause();
+                isPlaying = false;
+                playPauseBtn.textContent = '▶️';
+                statusText.textContent = '⏸️ Pausado';
+                soundWaves.style.opacity = '0.5';
+            } else {
+                radioAudio.play();
+                isPlaying = true;
+                playPauseBtn.textContent = '⏸️';
+                statusText.textContent = '▶️ Reproduzindo...';
+                soundWaves.style.opacity = '1';
+            }
+        }
+
+        // VOLUME
+        function changeVolume(value) {
+            radioAudio.volume = value / 100;
+        }
+
+        // PRÓXIMA/ANTERIOR (SIMULADO)
+        function nextTrack() {
+            statusText.textContent = '⏭️ Próxima música...';
+            setTimeout(() => {
+                statusText.textContent = '▶️ Reproduzindo...';
+            }, 1000);
+        }
+
+        function previousTrack() {
+            statusText.textContent = '⏮️ Música anterior...';
+            setTimeout(() => {
+                statusText.textContent = '▶️ Reproduzindo...';
+            }, 1000);
+        }
+
         // CONTADOR DE DOWNLOADS
         let downloadCount = localStorage.getItem('downloadCount') ? parseInt(localStorage.getItem('downloadCount')) : 12450;
 
